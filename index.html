@@ -19,11 +19,7 @@
                             xtype: 'button', 
                             text: 'disable', 
                             handler: function(){
-                                // The button, on top of the Viewport, the component, 
-                                //is on also on top of the Viewport, ExtJS navigation functions up(), down() 
-                                //'this' referring to this particular button. The up() function 
-                                //navigates you to the Viewport.  From the Viewport you go back down() to 
-                                //any component on the Viewport.
+                                
                                 this.up().down("#yourComponent").disable();
                             },
                             style: { 
@@ -87,7 +83,7 @@
                             },
                             padding: 20,
                             width: 600,
-                            height: 400,
+                            height: 300,
                             style: {
                                 color: '#000000',
                                 border: '2px solid red', 
