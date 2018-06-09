@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Mazzochi First ExtJS App</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
    <link rel = "stylesheet" type = "text/css" href = "https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/classic/theme-crisp/resources/theme-crisp-all.css" / >
    <script type = "text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/extjs/6.0.0/ext-all.js"> </script>
     <script type="text/javascript">
@@ -18,12 +19,17 @@
                             xtype: 'button', 
                             text: 'disable', 
                             handler: function(){
-                                //The button, on top of the Viewport, the component, 
+                                // The button, on top of the Viewport, the component, 
                                 //is on also on top of the Viewport, ExtJS navigation functions up(), down() 
                                 //'this' referring to this particular button. The up() function 
                                 //navigates you to the Viewport.  From the Viewport you go back down() to 
                                 //any component on the Viewport.
                                 this.up().down("#yourComponent").disable();
+                            },
+                            style: { 
+                                marginLeft: '20px',
+                                marginTop: '20px',
+                                marginRight: '3px'
                             }
 
                         },
@@ -32,6 +38,10 @@
                             text: 'enable', 
                             handler: function(){
                                 this.up().down("#yourComponent").enable();
+                            },
+                            style: { 
+                                marginTop: '20px',
+                                marginRight: '3px'
                             }
 
                         },
@@ -40,6 +50,10 @@
                             text: 'show', 
                             handler: function(){
                                 this.up().down("#yourComponent").show();
+                            },
+                            style: { 
+                                marginTop: '20px',
+                                marginRight: '3px'
                             }
 
                         },
@@ -48,16 +62,25 @@
                             text: 'hide', 
                             handler: function(){
                                 this.up().down("#yourComponent").hide();
+                            },
+                            style: { 
+                                marginTop: '20px',
+                                marginRight: '3px'
                             }
 
                         },
                         {
                             itemId: "yourComponent",
                             html: '<h1>An Example of a Resizeable Div Using ExtJS</h1>',
-                            tpl: `By: {first} {last} <br/></br>
-                            You can move your cursor along an edge and resize this container. </br></br>
-                            You can also disable resizing by pressing the disable button.  </br></br>
-                            And finally you can re-enable resizing by pressing the enable button`,
+                            tpl: `By: {first} {last} June 9th, 2018<br/></br>
+                            In my eight years of experience working with JavaScript I had never used ExtJS before until yesterday, when I was asked if I was familiar with or 
+                            had used ExtJS before. I ended up accepting a challenge that was presented to me, to show that I could demonstrate I understood ExtJS. I wasn't concerned with whether I'd be 
+                            able to pick ExtJS up, because I had exposed myself to the code not too long ago, and knew it was just JavaScript, and JavaScript Object Notation.
+
+                            And indeed because ExtJS is just class based JavaScript using JavaScript Object Notation, in just one day I've been able to 
+                            traverse the ExtJS learning curve, and began buillding enterprise desktop UI components immediately. 
+                            This example is the first component I built. It is is a re-sizable container
+                            with the ability to disable the resizing, show, and hide the component.`,
                             data: {
                                 first: 'Chris',
                                 last: 'Mazzochi'
@@ -67,8 +90,10 @@
                             height: 400,
                             style: {
                                 color: '#000000',
-                                backgroundColor: '#BBBBBB',
-                                border: '2px solid red'
+                                border: '2px solid red', 
+                                marginLeft: '20px',
+                                marginTop: '20px'
+
                             },
                             resizable: true,
                             listeners: {
@@ -86,6 +111,13 @@
             }
         });
     </script>
+
+    <style>
+        .xpanel {
+            margin:0 auto;
+        }
+    </style>
+
 </head>
     <body>
 

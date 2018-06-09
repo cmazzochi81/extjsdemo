@@ -1,0 +1,9 @@
+h1{
+	line-height:100%;
+	margin-top:0px;
+}
+.x-panel-body-default{
+	
+	border: none !important;
+	overflow:auto !important;
+}
