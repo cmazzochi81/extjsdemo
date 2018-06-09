@@ -1,0 +1,104 @@
+  <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Mazzo's First ExtJS App</title>
+   <link href="http://cdn.sencha.io/ext/gpl/4.2.1/resources/css/ext-all-neptune.css" rel="stylesheet" />
+   <script src="http://cdn.sencha.com/ext/gpl/4.2.1/ext-all.js"></script>
+    <script type="text/javascript">
+        //Ext is the singleton, application is the static function that gets executed.
+        //It takes one parameter, a JavaScript literal. A configuration object. 
+        Ext.application({
+            name: 'MyApp',
+          //launch is an attribute that is a function that runs when ExtJS
+            // 
+            launch: function () {
+                Ext.create('Ext.container.Viewport', {
+                    items: [
+
+                        {
+                            //same as Ext.create("Ext.button")
+                            xtype: 'button', 
+                            text: 'disable', 
+                            handler: function(){
+                                //you have a button, on top of the Viewport, just like the component, 
+                                //is on top of the Viewport, ExtJS navigation functions up(), down(), 
+                                //'this' referring to this particular button. The up() function 
+                                //navigates you to the Viewport.  From the Viewport you go back down() to 
+                                //the some component on the Viewport.
+                                this.up().down("#yourComponent").disable();
+                            }
+
+                        },
+                        {
+                            //same as Ext.create("Ext.button")
+                            xtype: 'button', 
+                            text: 'enable', 
+                            handler: function(){
+                                //you have a button, on top of the Viewport, just like the component, 
+                                //is on top of the Viewport, ExtJS navigation functions up(), down(), 
+                                //'this' referring to this particular button. The up() function 
+                                //navigates you to the Viewport.  From the Viewport you go back down() to 
+                                //the some component on the Viewport.
+                                this.up().down("#yourComponent").enable();
+                            }
+
+                        },
+                        {
+                            xtype: 'button', 
+                            text: 'show', 
+                            handler: function(){
+                                this.up().down("#yourComponent").show();
+                            }
+
+                        },
+                        {
+                            xtype: 'button', 
+                            text: 'hide', 
+                            handler: function(){
+                                this.up().down("#yourComponent").hide();
+                            }
+
+                        },
+                        {
+                            itemId: "yourComponent",
+                            html: '<h1>An Example of a Resizeable Div Using ExtJS</h1>',
+                            tpl: `By: {first} {last} <br/>
+                            You can move your cursor along an edge and resize this container. </br>
+                            You can also disable resizing by pressing the disable button.  </br>
+                            And finally you can re-enable resizing by pressing the enable button`,
+                            data: {
+                                first: 'Chris',
+                                last: 'Mazzochi'
+                            },
+                            padding: 20,
+                            width: 600,
+                            height: 400,
+                            style: {
+                                color: '#000000',
+                                backgroundColor: '#BBBBBB',
+                                border: '2px solid red'
+                            },
+                            resizable: true,
+                            listeners: {
+                                resize: {
+                                    //The first parameter is always the component itself
+                                    //or whatever object you are attaching the event handler to.
+                                    fn: function(component, width, height) {
+                                        console.log("w/h: " + width + " " + height);
+                                    }
+                                }
+                            }   
+                        }
+                    ]
+                });
+            }
+        });
+    </script>
+</head>
+    <body>
+
+        <div id="MyDivId"> 
+            <h1>Yeah baby!</h1>
+        </div>
+    </body>
+</html>
